@@ -1,0 +1,14 @@
+
+.main {
+    background-color: aquamarine;
+    margin-left: 174px;
+    padding: 20px;
+    width: calc(100% - 200px);
+    height: 100vh;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+
+}
