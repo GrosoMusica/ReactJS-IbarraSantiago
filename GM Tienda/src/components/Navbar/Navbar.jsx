@@ -2,7 +2,6 @@ import classes from "./Navbar.module.css"
 import CartWidget from "../Cart/CartWidget"
 
 const Navbar = () =>{
-    console.log(classes)
     return (
         <aside>
             <div className={classes.logo}>

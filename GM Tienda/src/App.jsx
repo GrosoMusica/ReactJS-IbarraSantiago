@@ -3,24 +3,21 @@ import './App.css'
 
 import Navbar from "./components/Navbar/Navbar"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx"
-import ItemCounter from './components/ItemCounter/ItemCounter.jsx'
-
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
+import { BrowserRouter, Routes, Route }  from "react-router-dom";
 
 function App() {
 
-//   const agregarSamples = (cantidad) => {
-//     // Lógica para agregar la cantidad de muestras
-// };
-  
   return (
     <>
       <Navbar />
-      <ItemListContainer greeting={"Bienvenidos a Tienda GM "} />
 
-      <ItemCounter ini={1} stock={10} agregar={agregarSamples} />
+      
 
+      <ItemDetailContainer />
     </>
   )
 }
+export default App;
 
-export default App
+

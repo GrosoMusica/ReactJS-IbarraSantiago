@@ -1,4 +1,6 @@
 
+
+
 const ItemList = ({ samples }) => {
 
     return (
@@ -6,15 +8,9 @@ const ItemList = ({ samples }) => {
             {
                 samples.map(sample => {
 
-                    return <p key="product-ID"></p>
-
-
-
-
-
+                    return <Item key={sample.id} {...samples}/>
                 })
             }
-
 
         </article>
 
