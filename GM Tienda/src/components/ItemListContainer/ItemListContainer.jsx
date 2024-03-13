@@ -9,7 +9,7 @@ const ItemListContainer = (props) => {
     const [samples, setSamples] = useState([]);
 
     const {tagsId } = useParams()
-
+ 
     useEffect(() => {
 
         const asyncFunc = tagsId ? getSampleById : getSamples
@@ -29,7 +29,7 @@ const ItemListContainer = (props) => {
             <h1>{props.saludar}</h1>
             
                 <ItemList samples={samples} />
-                <ItemCounter ini={1} stock={4} onAdd={} />
+                <ItemCounter ini={1} stock={4} onAdd={cantidad} />
             
         </main>
     );
