@@ -1,21 +1,14 @@
-
-
+import "ItemList.modules.css"
+import Item from "../Item/Item";
 
 const ItemList = ({ samples }) => {
-
     return (
-        <article>
-            {
-                samples.map(sample => {
+    <article className="Item-list">
+        {samples.map(sampl => {
+        return <Item key={sampl.id} {...sampl} />; 
+        })}
+    </article>
+    );
+};
 
-                    return <Item key={sample.id} {...samples}/>
-                })
-            }
-
-        </article>
-
-    )
-
-}
-
-export default ItemList
+export default ItemList;

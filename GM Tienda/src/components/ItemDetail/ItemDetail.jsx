@@ -1,16 +1,20 @@
 
+import "ItemDetail.css";
+
 import ItemCounter from "../ItemCounter/ItemCounter";
 import itemCounter from  "../ItemCounter/ItemCounter";
+import { getSamples } from "../../asyncMock";
 
 
-const ItemDetail = ({ nombre, tags, precio, image, description, stock }) => {
+const ItemDetail = ({ id, nombre, tags, precio, image, description, stock }) => {
 
     return (
-        <article className="SampleCard">
+        <article className="Card">
 
+            <h2>{id}:{nombre}</h2>
+            
             <img src={image} alt={nombre} style={{width: 100}} />
 
-            <h3>Sample {nombre}</h3>
 
             <p>{description}</p>
 
@@ -18,7 +22,7 @@ const ItemDetail = ({ nombre, tags, precio, image, description, stock }) => {
 
             <h4>Precio: $ {precio}</h4>
 
-            <ItemCounter stock={stock} />
+            <ItemCounter ini={1} stock={stock} onAdd ={(cantidad) => console.log("cantidad agregada")}/>
 
             
 

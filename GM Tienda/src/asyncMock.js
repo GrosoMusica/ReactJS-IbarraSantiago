@@ -141,23 +141,30 @@ const samples = [
 ]
 
 export const getSamples = () => {
-
-    return new Promise ((res) => {
+    return new Promise ((resolve) => {
         setTimeout (() => {
-            // resolve(samples)
+            resolve(samples)
     }, 555)
 })
-
 }
 
+//
 
-// export const getSamplesByID = (id) => {
-//     return ner Promise ((res) => {
-//         setTimeout(() => {
-//             resolve(samples.find(prod => prod.id === id))
-//         }, 1111)
-//     })
-// }
+export const getSampleById = (sampleId) => {
+    return new Promise ((resolve) => {
+        setTimeout(() => {
+            resolve(samples.find(sampl => sampl.id === sampleId))
+        }, 1111)
+    })
+}
+
+export const getSampleByTags = (tags) => {
+    return new Promise ((resolve) => {
+        setTimeout(() => {
+            resolve(samples.filter(prod => prod.tags.some(tag => tags.includes(tag))));
+        }, 1111);
+    })
+}
 
 
 
