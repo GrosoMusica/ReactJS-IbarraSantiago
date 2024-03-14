@@ -8,7 +8,7 @@ const Navbar = () => {
         <header>
             <div>
                 <img src="./src/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/>
-                <h4>Tienda GM</h4>
+                <h2>Tienda GM</h2>
             </div>
             <nav >
 

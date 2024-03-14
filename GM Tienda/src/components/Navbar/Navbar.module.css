@@ -9,22 +9,22 @@ header {
     left:0;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 nav {
     margin-top: 20px;
 }
 
-a {
+nav a {
     display: block;
-    color: #fff;
+    color: rgb(165, 82, 165);
     text-decoration: none;
     padding: 10px 0;
 }
 
-a:hover {
-    color: black;
-    background-color: blueviolet;
+nav a:hover {
+    color: whitesmoke;
 }
 
 .logo {
@@ -38,9 +38,9 @@ a:hover {
     margin-right: 10px;
 }
 
-h4 {
-    color: blueviolet; 
-    font-size: 27;
+h2 {
+    color: white; 
+    font-size: 29;
     margin: 0;
 }
 

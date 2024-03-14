@@ -1,16 +1,21 @@
-// import styles from "./ItemList.modules.css";
+import styles from "./ItemList.module.css";
+
+import { getSamples } from "../../asyncMock";
+import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 
-const ItemList = ({ samples }) => {
-    return (
-    <section>
-        {samples.map(sample => {
-        return <p key={sample.id}>{sample.nombre}</p>
-        ; 
-        
 
+const ItemList = ({ samples }) => {
+    
+    return (
+
+
+    <section className="itemList">
+        {samples.map(sample => (
         
-        })}
+        <Item key={sample.id} { ...sample } />
+        )
+        )}
     </section>
 
     );

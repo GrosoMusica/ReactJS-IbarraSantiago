@@ -1,11 +1,12 @@
 
 main {
+    background-color: brown;
     padding-left: 300px;
-    width: calc(100vh - 200px);
-    height: 100vh;
     text-align: center;
 
+
 }
+
 
 h1 {
     color: rgb(0, 0, 78);

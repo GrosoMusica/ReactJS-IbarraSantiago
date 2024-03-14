@@ -21,11 +21,13 @@ const ItemListContainer = ({ welcome }) => {
         })
 
     return (
-        <main className="home-background">
+        <main>
             <h1>{ welcome }</h1>
-            
+
+            <section>
                 <ItemList samples={samples}/>
-                <ItemCount stock={11}/>
+            </section>
+            <ItemCount stock={11}/>
             
         </main>
     );
