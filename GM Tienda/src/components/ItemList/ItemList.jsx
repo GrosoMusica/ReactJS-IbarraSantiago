@@ -5,9 +5,14 @@ const ItemList = ({ samples }) => {
     return (
     <section>
         {samples.map(sample => {
-        return <p key={sample.id}>{sample.nombre}</p>; 
+        return <p key={sample.id}>{sample.nombre}</p>
+        ; 
+        
+
+        
         })}
     </section>
+
     );
 };
 
