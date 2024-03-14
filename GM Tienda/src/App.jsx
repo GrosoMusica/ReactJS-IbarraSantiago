@@ -15,7 +15,6 @@ function App() {
     <>
       <Navbar />
       <ItemListContainer welcome={"Bienvenido a Tienda GM" }/>
-      <ItemCount stock={11}/>
     </>
   )
 }

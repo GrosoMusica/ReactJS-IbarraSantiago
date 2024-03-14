@@ -10,11 +10,16 @@ const Navbar = () => {
                 <img src="./src/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/>
                 <h4>Tienda GM</h4>
             </div>
-            <nav>
+            <nav >
 
-                <a href="#">Sample</a>
-                <a href="#">gUITAR</a>
-                <a href="#">cONTACT</a>
+                <a href="#">Acoustic</a>
+                <a href="#">Guitar</a>
+                <a href="#">Electric</a>
+                <a href="#">Ambient</a>
+                <a href="#">LOOP</a>
+                <a href="#">Groove</a>
+                <a href="#">Modern</a>
+                <a href="#">Dancing</a>
 {/*                 
                 <NavLink to="/tags/Acoustic" activeClassName="activeOption" className="Option">Acoustic</NavLink>
 

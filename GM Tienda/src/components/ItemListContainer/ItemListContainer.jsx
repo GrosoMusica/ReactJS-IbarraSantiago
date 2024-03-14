@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getSamples } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
-// import styles from "./ItemListContainer.module.css";
+import styles from "./ItemListContainer.module.css";
+import ItemCount from "../ItemCounter/ItemCounter";
 // import ItemCount from "../ItemCounter/ItemCounter";
 // import useParams from "react-router-dom";
 
@@ -20,10 +21,11 @@ const ItemListContainer = ({ welcome }) => {
         })
 
     return (
-        <main>
+        <main className="home-background">
             <h1>{ welcome }</h1>
             
                 <ItemList samples={samples}/>
+                <ItemCount stock={11}/>
             
         </main>
     );
