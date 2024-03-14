@@ -1,13 +1,13 @@
-import "ItemList.modules.css"
+// import styles from "./ItemList.modules.css";
 import Item from "../Item/Item";
 
 const ItemList = ({ samples }) => {
     return (
-    <article className="Item-list">
-        {samples.map(sampl => {
-        return <Item key={sampl.id} {...sampl} />; 
+    <section>
+        {samples.map(sample => {
+        return <p key={sample.id}>{sample.nombre}</p>; 
         })}
-    </article>
+    </section>
     );
 };
 

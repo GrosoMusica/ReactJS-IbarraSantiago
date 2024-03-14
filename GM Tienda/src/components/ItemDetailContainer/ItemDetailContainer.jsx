@@ -1,5 +1,5 @@
 
-import "ItemDetailContainer.module.css"
+import styles from "./ItemDetailContainer.module.css";
 
 import { useState, useEffect } from "react";
 import { getSampleById } from "../../asyncMock";
@@ -25,10 +25,10 @@ const ItemDetailContainer = () => {
     }, [temId]);
 
     return (
-        <main className="Item-Details" >
+        <div className="Item-Details" >
             <h1>Detalles del Producto</h1>
             <ItemDetail {...samples} />
-        </main>
+        </div>
     )
 }
 

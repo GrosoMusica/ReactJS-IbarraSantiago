@@ -1,7 +1,30 @@
+   <Routes>
+        <Route path='/' element={<ItemListContainer />} />
+        <Route path='/item/:itemId' element={<ItemListContainer />} />
+        <Route path='*' element={<h1>404 NOT FOUND</h1>} />
+      </Routes>
 
 
-const samples = [
-   {
+
+      <ItemDetailContainer />
+
+
+
+
+      <img className="thumb" src={image}/>
+
+            <p className="description">{description}</p>
+
+            <Link to={'/item/${id}'} />ver detalles
+
+
+            
+// const tags = [Acoustic, Electric, Ambient, Groove, Dancing, Modern, LOOP,];
+
+
+
+
+{
     "id": 3,
     "nombre": "Clásico Criollo",
     "precio": 12,
@@ -118,16 +141,25 @@ const samples = [
     "stock": 2,
     "description": "Explora el mundo del rock y el metal con la guitarra Ibanez.",
 }
-]
-
-export const getSamples = () => {
-    return new Promise ((resolve) => {
-        setTimeout (() => {
-            resolve(samples)
-    }, 555);
-})
-};
 
 
 
 
+
+
+//
+
+// export const getSampleById = (sampleId) => {
+//     return new Promise ((resolve) => {
+//         setTimeout(() => {
+//             resolve(samples.find(sampl => sampl.id === sampleId))
+//         }, 1111)
+//     })
+// }
+
+// export const getSampleByTags = (tags) => {
+//     return new Promise ((resolve) => {
+//         setTimeout(() => {
+//             resolve(samples.filter(prod => prod.tags.some(tag => tags.includes(tag))));
+//         }, 1111);
+//     })

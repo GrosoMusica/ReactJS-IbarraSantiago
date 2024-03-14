@@ -1,35 +1,5 @@
 
-
-.ItemList {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-list-container {
-    display: flex;
-    flex-direction: column; /* Organiza las tarjetas en una columna */
-  }
-  
-  /* Estilos para las tarjetas en lista */
-  .card-list {
-    margin-bottom: 10px; /* Margen inferior entre las tarjetas */
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilos para el contenedor de tarjetas en cuadrícula */
-  .card-grid-container {
+  .section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Organiza las tarjetas en columnas automáticas */
-    gap: 10px; /* Espacio entre las tarjetas */
-  }
-  
-  /* Estilos para las tarjetas en cuadrícula */
-  .card-grid {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px; }

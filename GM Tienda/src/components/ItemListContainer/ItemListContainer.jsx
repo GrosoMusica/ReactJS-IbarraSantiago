@@ -1,35 +1,29 @@
 import { useState, useEffect } from "react";
-import { getSamples, getSampleByTags, getSampleById } from "../../asyncMock";
-import "./ItemListContainer.module.css";
+import { getSamples } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
-// import ItemCounter from "../ItemCounter/ItemCounter";
-import useParams from "react-router-dom";
+// import styles from "./ItemListContainer.module.css";
+// import ItemCount from "../ItemCounter/ItemCounter";
+// import useParams from "react-router-dom";
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({ welcome }) => {
     const [samples, setSamples] = useState([]);
 
-    const {tagsId } = useParams()
- 
     useEffect(() => {
 
-        const asyncFunc = tagsId ? getSampleById : getSamples
-        
-        asyncFunc(tagsId) 
-            
-            .then(response => {
-                setSamples(response)
+        getSamples()
+            .then(result => {
+                setSamples(result)
             })
-            .catch(error => {
-                console.error(error)
-            })
-    }, [tagsId]);
+            // .catch(error => {
+            //     console.error(error)
+            // })
+        })
 
     return (
-        <main className={classes.main}>
-            <h1>{props.saludar}</h1>
+        <main>
+            <h1>{ welcome }</h1>
             
-                <ItemList samples={samples} />
-                <ItemCounter ini={1} stock={4} onAdd={cantidad} />
+                <ItemList samples={samples}/>
             
         </main>
     );
