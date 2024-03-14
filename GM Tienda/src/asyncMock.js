@@ -112,7 +112,7 @@ const samples = [
     "nombre": "Production",
     "precio": 27,
     "tags": ["Electric", "Modern"],
-    "image": "./src/image/Production.jpg",
+    "image": "./src/image/Production.jpeg",
     "stock": 5,
     "description": "Exploración del proceso de producción musical.",
 },
@@ -145,5 +145,18 @@ export const getSamples = () => {
 };
 
 
+export const getSampleById = (itemId) => {
+    return new Promise ((resolve) => {
+        setTimeout (() => {
+            resolve(samples.find(prod => prod.id === itemId))
+        }, 111)
+    })
+}
 
-
+export const getSamplesByTags = (categoryId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(samples.filter(prod => prod.tags.includes(categoryId)))
+        }, 111)
+    })
+}

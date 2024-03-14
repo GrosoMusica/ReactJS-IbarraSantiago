@@ -2,6 +2,7 @@
 import CartWidget from '../Cart/CartWidget';
 
 import classes from "./Navbar.module.css"; 
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -11,30 +12,19 @@ const Navbar = () => {
                 <h2>Tienda GM</h2>
             </div>
             <nav >
+                <NavLink to='/Acoustic/' >Acoustic</NavLink>
 
-                <a href="#">Acoustic</a>
-                <a href="#">Guitar</a>
-                <a href="#">Electric</a>
-                <a href="#">Ambient</a>
-                <a href="#">LOOP</a>
-                <a href="#">Groove</a>
-                <a href="#">Modern</a>
-                <a href="#">Dancing</a>
-{/*                 
-                <NavLink to="/tags/Acoustic" activeClassName="activeOption" className="Option">Acoustic</NavLink>
+                <NavLink to='/Ambient/' >Ambient</NavLink>
 
-                <NavLink to="/tags/Ambient" activeClassName="activeOption" className="Option">Ambient</NavLink>
+                <NavLink to="/Electric/" >Electric</NavLink>
 
-                <NavLink to="/tags/Electric" activeClassName="activeOption" className="Option">Electric</NavLink>
+                <NavLink to="/LOOP/" >LOOP</NavLink>
 
-                <NavLink to="/tags/LOOP" activeClassName="activeOption" className="Option">LOOP</NavLink>
+                <NavLink to="/Groove/" >Groove</NavLink>
 
-                <NavLink to="/tags/Groove" activeClassName="activeOption" className="Option">Groove</NavLink>
+                <NavLink to="/Dancing/" >Dancing</NavLink>
 
-                <NavLink to="/tags/Dancing" activeClassName="activeOption" className="Option">Dancing</NavLink>
-
-                <NavLink to="/tags/Modern" activeClassName="activeOption" className="Option">Modern</NavLink> */}
-
+                <NavLink to="/Modern/" >Modern</NavLink> 
             </nav>
                 <CartWidget /> 
         </header>

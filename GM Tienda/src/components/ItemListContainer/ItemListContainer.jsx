@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
-import { getSamples } from "../../asyncMock";
+import { getSamples, getSamplesByTags } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import styles from "./ItemListContainer.module.css";
-import ItemCount from "../ItemCounter/ItemCounter";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
+import { useParams } from "react-router-dom";
 // import ItemCount from "../ItemCounter/ItemCounter";
-// import useParams from "react-router-dom";
 
 const ItemListContainer = ({ welcome }) => {
     const [samples, setSamples] = useState([]);
 
+    const { categoryId } = useParams();
+
+
     useEffect(() => {
 
-        getSamples()
+        const asyncFunction = categoryId ? getSamplesByTags : getSamples
+        asyncFunction(categoryId)
             .then(result => {
                 setSamples(result)
             })
@@ -26,8 +30,9 @@ const ItemListContainer = ({ welcome }) => {
 
             <section>
                 <ItemList samples={samples}/>
+
+                
             </section>
-            <ItemCount stock={11}/>
             
         </main>
     );

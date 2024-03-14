@@ -1,15 +1,20 @@
 
 main {
-    background-color: brown;
     padding-left: 300px;
     text-align: center;
 
-
 }
 
 
-h1 {
-    color: rgb(0, 0, 78);
-    text-align: center;
 
-}
+.Item-Details {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px;
+  }
+  
+  .Item-Details h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  

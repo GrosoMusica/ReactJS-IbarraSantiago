@@ -2,33 +2,34 @@
 import styles from "./ItemDetailContainer.module.css";
 
 import { useState, useEffect } from "react";
-import { getSampleById } from "../../asyncMock";
+import { getSampleById, getSamples } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { useParams } from "react-dom";
+import { useParams } from "react-router-dom";
 
 
 const ItemDetailContainer = () => {
 
-    const [sample, setSample] = useState(null)
+    const [sample, setSample] = useState([])
 
     const { itemId } = useParams()
 
     useEffect (() => {
 
         getSampleById (itemId)
-        .then(response => {
-            setSample (response)
+        .then(result => {
+            setSample (result)
         })
-        .catch (error => {
-            console.error(error)
-        })
-    }, [temId]);
+        // .catch (error => {
+        //     console.error(error)
+        // })
+    }, [itemId]);
 
     return (
-        <div className="Item-Details" >
-            <h1>Detalles del Producto</h1>
-            <ItemDetail {...samples} />
-        </div>
+        <main>
+            <h1>Detalle de Producto</h1>
+            <ItemDetail {...sample} />
+
+        </main>
     )
 }
 
