@@ -2,7 +2,7 @@
 const CartWidget = () => {
     return (
         <div>
-            <img className="cart" src="./src/components/Cart/gtr.svg" alt="cart-widget" />
+            <img className="cart" src="/public/assets/gtr.svg" alt="cart-widget" />
             0
         </div>
     )

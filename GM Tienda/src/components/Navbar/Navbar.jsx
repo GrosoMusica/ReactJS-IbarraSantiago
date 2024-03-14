@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <header>
             <div>
-                <img src="./src/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/>
+                <img src="/public/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/>
                 <h2>Tienda GM</h2>
             </div>
             <nav >

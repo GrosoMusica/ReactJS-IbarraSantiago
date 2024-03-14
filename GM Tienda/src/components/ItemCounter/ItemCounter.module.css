@@ -2,8 +2,10 @@
 
 
 article {
+    
 
-    border: 1px solid black;
+    max-width: 1111px;
+
 
     align-items: center;
     margin-bottom: 1rem;
