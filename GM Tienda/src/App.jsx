@@ -1,15 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter, Routes, Route }  from "react-router-dom";
+
 
 import Navbar from "./components/Navbar/Navbar"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx'
+import { CartProvider } from './context/CartContext.jsx';
+import { BrowserRouter, Routes, Route }  from "react-router-dom";
+
+import { useState } from 'react'
+import './App.css'
+
+
 
 function App() {
 
   return (
     <>
+    <CartProvider>
+
     <BrowserRouter>
 
     <Navbar />
@@ -22,11 +29,18 @@ function App() {
 
       <Route path='/:categoryId' element={<ItemListContainer welcome={"Category" } />}></Route>
 
+      {/* <Route path='/Cart' element={<CartView />}></Route> */}
+
+
+
 
     
     </Routes>
 
     </BrowserRouter>
+    
+    </CartProvider>
+    
     </>
   )
 }

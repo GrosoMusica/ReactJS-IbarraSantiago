@@ -1,10 +1,13 @@
 
+
 import classes from "./ItemCounter.module.css";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const ItemCount = ({ ini = 1, stock, onAdd }) => {
     const [contar, setContar] = useState(ini);
+
 
     const restar = () => {
         if (contar > 1) {
