@@ -1,10 +1,22 @@
-import React, { useState, createContext } from "react";
-
+import React, { useState, createContext, useEffect } from "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        const getTotalQuantity = () => {
+            return cart.reduce((accumulator, prod) => accumulator + prod.quantity, 0);
+        }
+
+        const getTotal = () => {
+            return cart.reduce((accumulator, prod) => accumulator + prod.quantity * prod.precio, 0);
+        }
+
+        setTotalQuantity(getTotalQuantity());
+        setTotal(getTotal());
+    }, [cart]);
 
     const addItem = (productToAdd) => {
         if (!isInCart(productToAdd.id)) {
@@ -18,23 +30,15 @@ export const CartProvider = ({ children }) => {
         return cart.some(prod => prod.id === id);
     }
 
-    const getTotalQuantity = () => {
-        let accumulator = 0;
-
-        cart.forEach(prod => {
-            accumulator += prod.quantity;
-        });
-
-        return accumulator;
-    }
-
-    const totalQuantity = getTotalQuantity();
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [total, setTotal] = useState(0);
 
     return (
-        <CartContext.Provider value={{ cart, addItem, totalQuantity }}>
+        <CartContext.Provider value={{ cart, addItem, totalQuantity, total }}>
             {children}
         </CartContext.Provider>
     );
 }
+
 
 

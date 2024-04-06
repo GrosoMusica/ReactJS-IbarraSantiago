@@ -44,7 +44,7 @@ const ItemDetail = ({ id, tags, nombre, precio, image, description, stock }) => 
                 {quantity === 0 ? (            
                     <ItemCounter onAdd={agregarContar} stock={stock}/>
                     ) : (
-                    <Link to="/cart">Finalizar Compra</Link>    
+                    <Link to="/cart"><button>Finalizar Compra</button></Link>    
                     )
                 }
             </footer>

@@ -2,9 +2,12 @@
 import styles from "./ItemDetailContainer.module.css";
 
 import { useState, useEffect } from "react";
-import { getSampleById, getSamples } from "../../asyncMock";
+// import { getSampleById, getSamples } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../services/firebaseConfig";
+
 
 
 const ItemDetailContainer = () => {
@@ -15,10 +18,25 @@ const ItemDetailContainer = () => {
 
     useEffect (() => {
 
-        getSampleById (itemId)
-        .then(result => {
-            setSample (result)
+        const sampleDoc = doc(db, "samples", itemId)
+
+        getDoc(sampleDoc)
+        .then(queryDocumentSnapshot => {
+            const data = queryDocumentSnapshot.data()
+            const sampleAdapted = { id: queryDocumentSnapshot.id, ...data}
+
+            setSample(sampleAdapted)
         })
+        .catch()
+
+
+
+
+
+        // getSampleById (itemId)
+        // .then(result => {
+        //     setSample (result)
+        // })
         // .catch (error => {
         //     console.error(error)
         // })
