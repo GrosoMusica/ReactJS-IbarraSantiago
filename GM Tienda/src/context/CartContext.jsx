@@ -4,6 +4,8 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         const getTotalQuantity = () => {
@@ -18,7 +20,7 @@ export const CartProvider = ({ children }) => {
         setTotal(getTotal());
     }, [cart]);
 
-    const addItem = (productToAdd) => {
+    const addItem = (samlesToAdd) => {
         if (!isInCart(productToAdd.id)) {
             setCart(prev => [...prev, productToAdd]);
         } else {
@@ -30,15 +32,13 @@ export const CartProvider = ({ children }) => {
         return cart.some(prod => prod.id === id);
     }
 
-    const [totalQuantity, setTotalQuantity] = useState(0);
-    const [total, setTotal] = useState(0);
-
     return (
         <CartContext.Provider value={{ cart, addItem, totalQuantity, total }}>
             {children}
         </CartContext.Provider>
     );
 }
+
 
 
 

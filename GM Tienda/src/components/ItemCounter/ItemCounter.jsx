@@ -21,6 +21,10 @@ const ItemCount = ({ ini = 1, stock, onAdd }) => {
         }
     };
 
+    
+
+
+
     return (
         <article>
             <h3>{contar}</h3>

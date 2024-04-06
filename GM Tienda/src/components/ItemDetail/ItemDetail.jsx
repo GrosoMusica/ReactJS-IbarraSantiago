@@ -2,14 +2,14 @@
 
 import { useState, useContext } from "react";
 import ItemCounter from "../ItemCounter/ItemCounter";
-import { getSamples, getSampleById } from "../../asyncMock";
+// import { getSamples, getSampleById } from "../../asyncMock";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 
 
 
-const ItemDetail = ({ id, tags, nombre, precio, image, description, stock }) => {
+const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
 
     const [quantity, setQuantity] = useState(0);
 
@@ -18,7 +18,6 @@ const ItemDetail = ({ id, tags, nombre, precio, image, description, stock }) => 
     const agregarContar = (contar) => {
         
         const samplesToAdd = {
-            id, 
             nombre, 
             precio, 
             contar
@@ -42,7 +41,7 @@ const ItemDetail = ({ id, tags, nombre, precio, image, description, stock }) => 
             <h3>Precio: $ {precio}</h3>
             <footer>
                 {quantity === 0 ? (            
-                    <ItemCounter onAdd={agregarContar} stock={stock}/>
+                    <ItemCounter onAdd={agregarContar} stock={stock} />
                     ) : (
                     <Link to="/cart"><button>Finalizar Compra</button></Link>    
                     )

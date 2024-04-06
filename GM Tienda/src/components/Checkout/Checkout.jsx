@@ -15,13 +15,13 @@ const Checkout = (userData) => {
         try {
             const objPedido = {
                 comprador: {
-                    nombre: "Santiago Ibarra"
-                    email: "grosomusica@gmail.com"
+                    nombre: "Santiago Ibarra",
+                    email: "grosomusica@gmail.com",
                     whatsapp: 1135743407
-                },
+                    },
                 items: cart,
                 total
-            }
+            };
     
             const batch = writeBatch(db)
             const agotado = []
@@ -30,7 +30,7 @@ const Checkout = (userData) => {
             const samplesCollection = query(collection(db, 'samples'), where(documentId(), 'in', ids));
             
             const querySnapshot = await getDocs(samplesCollection);
-            const { docs } = querySnapshot
+            const { docs } = querySnapshot;
     
             docs.forEach(doc => {
     
@@ -56,20 +56,20 @@ const Checkout = (userData) => {
             } else {
                 console.error("hay cantidades no disponibles por el momento")
 
-        } catch (error) {
-            console.error("no hay sistema!!")
+        }} catch (error) {
+            console.error("no hay sistema!!");
 
-        } finally {}       
+        } finally {}       ;
 
-    }}
+    }};
 
     return (
         <div>
             <h1>Checkout</h1>
             <h3>Formulario</h3>
-            <button onClick={{createPedido}}>HACER PEDIDO</button>
+            <button onClick={createPedido}>HACER PEDIDO</button>
         </div>
     )
-}
 
-export default Checkout
+
+export default Checkout;
