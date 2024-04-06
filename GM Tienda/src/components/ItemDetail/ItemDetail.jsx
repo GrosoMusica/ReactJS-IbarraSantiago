@@ -43,6 +43,8 @@ const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
                     <ItemCounter onAdd={handleOnAdd} stock={stock} />
                     )
                 }
+                <Link to="/"><button>Seguir navegando</button></Link>    
+
             </footer>
         </article>
     );

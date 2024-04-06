@@ -1,12 +1,9 @@
 
-
 import { useState, useEffect } from "react";
-// import { getSamples, getSamplesByTags } from "../../asyncMock"; 
 import ItemList from "../ItemList/ItemList";
 import styles from "./ItemListContainer.module.css";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import { useParams } from "react-router-dom";
-// import ItemCount from "../ItemCounter/ItemCounter";
 
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConfig";
@@ -16,52 +13,34 @@ const ItemListContainer = ({ welcome }) => {
 
     const { categoryId } = useParams();
 
-
-
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setRender(prev => !prev)
-    //     }, 2133)
-    // })
-
     useEffect(() => {
+    let samplesCollection = collection(db, "samples");
 
-        const samplesCollection = categoryId ? (
-            query(collection(db, "samples"), where("tags", "==" , categoryId))
-        ) : (
-            collection(db, "samples")
-        )
+    if (categoryId) {
+        samplesCollection = query(samplesCollection, where("tags", "array-contains", categoryId));
+    }
 
-        getDocs(samplesCollection)
-            .then(querySnapshot => { 
-                const samplesAdapted = querySnapshot.docs.map(doc => {
-                    const data = doc.data()
+    getDocs(samplesCollection)
+        .then(querySnapshot => {
+            const samplesAdapted = querySnapshot.docs.map(doc => {
+                const data = doc.data();
+                return { id: doc.id, ...data };
+            });
 
-                    return { id: doc.id, ...data};
-                });
+            setSamples(samplesAdapted);
+        })
+        .catch(error => {
+            console.error("Error al cargar los datos:", error);
+        });
+}, [categoryId]);
 
-                setSamples(samplesAdapted)
-            })
-            .catch(() => {
-                console.error("Error al cargar los datos");
-                        })
-    }, [categoryId])
-        
 
-        // const asyncFunction = categoryId ? getSamplesByTags : getSamples
-        // asyncFunction(categoryId)
-        //     .then(result => {
-        //         setSamples(result)
-        //     })
-        //     // .catch(error => {
-        //     //     console.error(error)
-        //     // })
+
         
 
     return (
         <main>
-            <h1>{ welcome }</h1>
+            <h1>{ categoryId || "Bienvenido a Tienda GM" }</h1>
 
             <section>
                 <ItemList samples={samples}/>
