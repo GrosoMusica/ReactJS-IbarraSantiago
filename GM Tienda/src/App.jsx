@@ -18,36 +18,25 @@ import './App.css'
 
 function App() {
 
-
-
   return (
     <>
-    <CartProvider>
+      <BrowserRouter>
+        <CartProvider>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer welcome={"Bienvenido a Tienda GM" }/>}></Route>
 
-    <BrowserRouter>
+            <Route path='/item/:itemId' element={<ItemDetailContainer />}></Route>
 
-    <Navbar />
-    
-    
-    <Routes>
-      <Route path='/' element={<ItemListContainer welcome={"Bienvenido a Tienda GM" }/>}></Route>
+            <Route path='/:categoryId' element={<ItemListContainer welcome={"Category" } />}></Route>
 
-      <Route path='/item/:itemId' element={<ItemDetailContainer />}></Route>
+            <Route path='/Cart' element={<CartView />}></Route>
 
-      <Route path='/:categoryId' element={<ItemListContainer welcome={"Category" } />}></Route>
+            <Route path='*' element={<h1>404 NOT FOUND </h1>}></Route>
 
-      <Route path='/Cart' element={<CartView />}></Route>
-
-
-
-
-    
-    </Routes>
-
-    </BrowserRouter>
-    
-    </CartProvider>
-    
+          </Routes>
+        </CartProvider>
+      </BrowserRouter>
     </>
   )
 }

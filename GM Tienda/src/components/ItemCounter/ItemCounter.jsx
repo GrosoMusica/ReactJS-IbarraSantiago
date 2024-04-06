@@ -6,18 +6,18 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const ItemCount = ({ ini = 1, stock, onAdd }) => {
-    const [contar, setContar] = useState(ini);
+    const [quantity, setQuantity] = useState(ini);
 
 
     const restar = () => {
-        if (contar > 1) {
-            setContar(prev => prev - 1);
+        if (quantity > 1) {
+            setQuantity(prev => prev - 1);
         }
     };
 
     const sumar = () => {
-        if (contar < stock) {
-            setContar(prev => prev + 1);
+        if (quantity < stock) {
+            setQuantity(prev => prev + 1);
         }
     };
 
@@ -27,9 +27,9 @@ const ItemCount = ({ ini = 1, stock, onAdd }) => {
 
     return (
         <article>
-            <h3>{contar}</h3>
+            <h3>{quantity}</h3>
             <button onClick={restar}>-</button>
-            <button onClick={() => onAdd(contar)}>Agregar Samples</button>
+            <button onClick={() => onAdd(quantity)}>Agregar Samples</button>
             <button onClick={sumar}>+</button>
         </article>
     );

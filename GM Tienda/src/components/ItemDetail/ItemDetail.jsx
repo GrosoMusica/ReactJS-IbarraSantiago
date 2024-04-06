@@ -11,22 +11,19 @@ import { Link } from "react-router-dom";
 
 const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
 
-    const [quantity, setQuantity] = useState(0);
+    const [quantityAdded, setQuantityAdded] = useState(0);
 
-    const { setCart } = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
+    
+    const handleOnAdd = (quantity) => {
+        setQuantityAdded(quantity)
 
-    const agregarContar = (contar) => {
-        
-        const samplesToAdd = {
-            nombre, 
-            precio, 
-            contar
+        const item = {
+            nombre, precio, image
         };
-        setQuantity(contar);
 
-        setCart(prev => [...prev, samplesToAdd])
-
-        };
+        addItem(item, quantity)
+    }
     
     return (
         <article className="ItemDetail">
@@ -40,10 +37,10 @@ const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
             <p>{description}</p>
             <h3>Precio: $ {precio}</h3>
             <footer>
-                {quantity === 0 ? (            
-                    <ItemCounter onAdd={agregarContar} stock={stock} />
-                    ) : (
+                {quantityAdded > 0 ? (            
                     <Link to="/cart"><button>Finalizar Compra</button></Link>    
+                ) : (
+                    <ItemCounter onAdd={handleOnAdd} stock={stock} />
                     )
                 }
             </footer>

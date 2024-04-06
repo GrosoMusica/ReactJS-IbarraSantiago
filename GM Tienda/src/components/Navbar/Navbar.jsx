@@ -2,13 +2,13 @@
 import CartWidget from '../Cart/CartWidget';
 
 import classes from "./Navbar.module.css"; 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <header>
             <div>
-                <img src="/public/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/>
+                <Link to='/'><img src="/public/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/></Link>
                 <h2>Tienda GM</h2>
             </div>
             <nav >
