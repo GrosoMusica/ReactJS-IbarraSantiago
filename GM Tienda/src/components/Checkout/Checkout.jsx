@@ -1,75 +1,84 @@
-
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { db } from "../../services/firebaseConfig";
 
-import { where, collection, query, documentId, getDocs, writeBatch, addDoc } from "firebase/firestore";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
+import { where, collection, query, documentId, getDocs, writeBatch, addDoc, Timestamp } from "firebase/firestore";
 
-const Checkout = (userData) => {
+const Checkout = () => {
+    const [loading, setLoading] = useState(false);
+    const [pedidoId, setPedidoId] = useState(null);
 
-    const { cart, total } = useContext(CartContext);
+    const { cart, total, clearCart } = useContext(CartContext);
 
-    const createPedido = async (userData) => {
+    const createPedido = async ({ cliente, email, whatsapp }) => {
 
+        setLoading(true); 
         try {
             const objPedido = {
                 comprador: {
-                    nombre: "Santiago Ibarra",
-                    email: "grosomusica@gmail.com",
-                    whatsapp: 1135743407
-                    },
+                    cliente, email, whatsapp
+                },
                 items: cart,
-                total
+                total: total,
+                date: Timestamp.fromDate(new Date())
             };
-    
-            const batch = writeBatch(db)
-            const agotado = []
-            const ids = cart.map(prod = prod.id);
-    
-            const samplesCollection = query(collection(db, 'samples'), where(documentId(), 'in', ids));
+
+            const batch = writeBatch(db);
+            const agotado = [];
             
+            const nombreSamples = cart.map(prod => prod.nombre); // Obtener los nombres de los samples del carrito
+            const samplesCollection = query(collection(db, 'samples'), where('nombre', 'in', nombreSamples));
             const querySnapshot = await getDocs(samplesCollection);
             const { docs } = querySnapshot;
-    
+
             docs.forEach(doc => {
-    
-                const data = doc.data()
-                const remanente = data.stock
-    
-                const sampleAdded = cart.find(prod => prod.id === doc.id)
-                const cantidadSampleAdded
-    
-                if(remanente >= cantidadSampleAdded) {
-                    batch.update(doc.ref, { stock: remanente - cantidadSampleAdded})
+                const data = doc.data();
+                const remanente = data.stock;
+                const sampleAdded = cart.find(prod => prod.id === doc.id);
+                const cantidadSampleAdded = sampleAdded?.quantity || 1; 
+
+
+                if (remanente >= cantidadSampleAdded) {
+                    batch.update(doc.ref, { stock: remanente - cantidadSampleAdded });
                 } else {
-                    agotado.push({ id: doc.id, ...data})
+                    agotado.push({ id: doc.id, ...data });
                 }
-            })
-    
-            if (agotado.length === 0 ) {
-                batch.commit()
-    
-                const pedidosCollection = collection(db, "pedidos")
-                const { id } = await addDoc(pedidoCollection, objPedido)
-    
+            });
+
+            if (agotado.length === 0) {
+                batch.commit();
+
+                const pedidosCollection = collection(db, "pedidos");
+                const { id } = await addDoc(pedidosCollection, objPedido);
+                setPedidoId(id);
             } else {
-                console.error("hay cantidades no disponibles por el momento")
+                console.error("Hay cantidades no disponibles por el momento");
+                console.log("Productos agotados:", agotado);
+            }
+        } catch (error) {
+            console.error("No hay sistema:", error);
+        } finally {
 
-        }} catch (error) {
-            console.error("no hay sistema!!");
+            setLoading(false);
+        }
+    };
 
-        } finally {}       ;
+    if (loading) {
+        return <h1>Pedido en Proceso...</h1>;
+    }
 
-    }};
+    if (pedidoId) {
+        return <h1>Tu Número de Pedido es {pedidoId}</h1>;
+    }
 
     return (
         <div>
             <h1>Checkout</h1>
-            <h3>Formulario</h3>
-            <button onClick={createPedido}>HACER PEDIDO</button>
+            <CheckoutForm onConfirm={createPedido} />
         </div>
-    )
-
+    );
+};
 
 export default Checkout;

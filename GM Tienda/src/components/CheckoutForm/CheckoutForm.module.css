@@ -1,0 +1,21 @@
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+width: 50%;
+}
+
+input {
+display: block;
+margin-bottom: 10px;
+}
+
+input {
+margin-left: 10px;
+}
+

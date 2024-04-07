@@ -25,11 +25,8 @@ export const CartProvider = ({ children }) => {
     }, [cart]);
 
     const addItem = (item, quantity) => {
-        // if (!isInCart(item.id)) {
             setCart(prev => [...prev, {...item, quantity}]);
-        // } else {
-        //     console.error("¡El producto ya está en el carrito!");
-        // };
+
     };
 
     const removeItem = (itemId) => {
@@ -40,11 +37,6 @@ export const CartProvider = ({ children }) => {
     const clearCart = () => {
         setCart([]);
     };
-
-
-    // const isInCart = (itemId) => {
-    //     return cart.some(prod => prod.nombre === itemNombre);
-    // };
 
     return (
         <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, totalQuantity, total }}>

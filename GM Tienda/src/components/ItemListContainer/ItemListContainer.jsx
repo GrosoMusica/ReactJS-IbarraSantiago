@@ -34,10 +34,6 @@ const ItemListContainer = ({ welcome }) => {
         });
 }, [categoryId]);
 
-
-
-        
-
     return (
         <main>
             <h1>{ categoryId || "Bienvenido a Tienda GM" }</h1>

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx'
 import CartView from "./components/CartView/CartView.jsx";
+import Checkout from "./components/Checkout/Checkout.jsx";
 import { CartProvider } from './context/CartContext.jsx';
 import { BrowserRouter, Routes, Route }  from "react-router-dom";
 
@@ -30,7 +31,9 @@ function App() {
 
             <Route path='/:categoryId' element={<ItemListContainer welcome={"categoryId"} />}></Route>
 
-            <Route path='/Cart' element={<CartView />}></Route>
+            <Route path='/cart' element={<CartView />}></Route>
+
+            <Route path='/checkout' element={<Checkout />}></Route>
 
             <Route path='*' element={<h1>404 NOT FOUND </h1>}></Route>
 
