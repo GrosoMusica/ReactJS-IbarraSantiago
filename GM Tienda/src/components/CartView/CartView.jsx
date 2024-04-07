@@ -19,14 +19,14 @@ const CartView = () => {
 
     return (
         
-        <div className="carrito" style={{ textAlign: "center" }}>
-
+        <div className="carrito" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
             {cart.map(prod => <CartItem key={prod.nombre} {...prod}/> )}
-
+        </div>
 
             <h3>Total: ${total}</h3>
             <button style={{ marginLeft: "300px" }} onClick={() => clearCart()}>Borrar Todos Los Samples Seleccionados</button>
-            <Link to='/Checkout'><button>Checkout</button></Link>
+            <Link to='/Checkout'><button>Ir al Checkout</button></Link>
         </div>
     );
 }

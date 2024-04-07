@@ -74,10 +74,24 @@ const Checkout = () => {
     }
 
     return (
-        <div>
-            <h1>Checkout</h1>
-            <CheckoutForm onConfirm={createPedido} />
+        <div className="checkout-container">
+
+            <div className="listado-compras">
+                <h2 style={{ color: 'darkviolet' }}>Productos en el carrito:</h2>
+                <ul>
+                    {cart.map((item, index) => (
+                        <li key={index}>
+                            <p>{item.nombre} - Cantidad: {item.quantity} - Precio: ${item.precio}</p>
+                        </li>
+                    ))}
+                </ul>
+                <h2 style={{ color: 'darkviolet' }}>${total}</h2>
+            </div>
+            <div className="formulario">
+                <CheckoutForm onConfirm={createPedido} />
+            </div>
         </div>
+
     );
 };
 

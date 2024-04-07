@@ -158,3 +158,50 @@ article p {
 .CartItemDetails {
   flex-grow: 1; 
 }
+
+.carrito button {
+    background-color: rgb(126, 9, 126); 
+    color: aliceblue;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer; 
+    border-radius: 4px;
+    margin: 0.5rem; 
+}
+
+.carrito button:hover {
+    color: aliceblue;
+    background-color: #34006e;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px;
+}
+
+.listado-compras {
+  border-right: 1px solid #ccc;
+  margin-right: 20px;
+  text-align: right;
+  width: 50%;
+  padding: 20px;
+}
+
+.listado-compras ul {
+  list-style: none; 
+}
+
+
+
+
+.formulario {
+  width: 50%;
+  padding: 20px;
+}
+
+.listado-compras {
+  border-right: 1px solid #ccc; 
+  margin-right: 20px;
+}
