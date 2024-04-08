@@ -39,7 +39,7 @@ const Navbar = () => {
     return (
         <header>
             <div>
-                <Link to='/'><img src="/public/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/></Link>
+                <Link to='/'><img src="/assets/logoGM.png" alt="Logo de la Tienda GM" width= "90px"/></Link>
                 <h2>Tienda GM</h2>
             </div>
             <nav>
