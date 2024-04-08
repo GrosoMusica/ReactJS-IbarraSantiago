@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { db } from "../../services/firebaseConfig";
+import { db } from "../../services/firebase";
 
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
@@ -28,7 +28,7 @@ const Checkout = () => {
             const batch = writeBatch(db);
             const agotado = [];
             
-            const nombreSamples = cart.map(prod => prod.nombre); // Obtener los nombres de los samples del carrito
+            const nombreSamples = cart.map(prod => prod.nombre);
             const samplesCollection = query(collection(db, 'samples'), where('nombre', 'in', nombreSamples));
             const querySnapshot = await getDocs(samplesCollection);
             const { docs } = querySnapshot;
@@ -70,7 +70,7 @@ const Checkout = () => {
     }
 
     if (pedidoId) {
-        return <h1>Tu Número de Pedido es {pedidoId}</h1>;
+        return <h1 style={{ textAlign: "center" }}>Tu Número de Pedido es {pedidoId}</h1>;
     }
 
     return (

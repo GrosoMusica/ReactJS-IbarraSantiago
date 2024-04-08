@@ -6,7 +6,7 @@ import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import { useParams } from "react-router-dom";
 
 import { getDocs, collection, query, where } from "firebase/firestore";
-import { db } from "../../services/firebaseConfig";
+import { db } from "../../services/firebase";
 
 const ItemListContainer = ({ welcome }) => {
     const [samples, setSamples] = useState([]);
