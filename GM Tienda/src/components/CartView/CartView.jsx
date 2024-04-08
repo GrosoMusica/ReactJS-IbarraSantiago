@@ -5,13 +5,13 @@ import CartItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
 
 const CartView = () => {
-    const { cart, clearCart, totalQuantity, total } = useContext(CartContext);
+    const { cart, clearCart, removeItem, totalQuantity, total } = useContext(CartContext);
 
     if (totalQuantity === 0) {
 
         return (
-            <div>
-                <h2>No seleccionaste ningún sample</h2>
+            <div style={{ textAlign: "center" }}>
+                <h3>No seleccionaste ningún sample</h3>
                 <Link to="/"><button>ver Samples</button></Link>
             </div>
         )
@@ -22,6 +22,8 @@ const CartView = () => {
         <div className="carrito" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
             {cart.map(prod => <CartItem key={prod.nombre} {...prod}/> )}
+            
+
         </div>
 
             <h3>Total: ${total}</h3>

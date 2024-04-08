@@ -1,11 +1,6 @@
 
 
-
-
-
 const CartItem = ({ image, nombre, precio, quantity, total }) => {
-
-
 
     return (
         <div className="CartItemContainer"> 
@@ -18,6 +13,8 @@ const CartItem = ({ image, nombre, precio, quantity, total }) => {
                     <h3>{nombre}</h3>
                     <h4>Precio: $ {precio}</h4>
                     <h4>Cantidad: {quantity}</h4>
+
+
                     {/* <button onClick={removeItem(nombre)}>QUITAR</button> */}
                 </div>
             </article>
