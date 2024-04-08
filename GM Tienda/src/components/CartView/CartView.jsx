@@ -23,6 +23,7 @@ const CartView = () => {
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
             {cart.map(prod => <CartItem key={prod.nombre} {...prod}/> )}
             
+            
 
         </div>
 
