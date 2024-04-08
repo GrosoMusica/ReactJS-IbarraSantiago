@@ -13,7 +13,7 @@ const Item = ({id, nombre, tags, precio, image, stock, description}) => {
             <h2>{nombre}</h2>
             <img src={image} alt={nombre} height={180} width={300} />
             {tags && tags.map((tag, index) => (
-                    <span className="TagButton" key={index}>#{tag}{index < tags.length - 1 && '  '}</span>
+                    <Link to={`../${tag}`} key={index} className="TagButton">#{tag}</Link>
                     ))}
 
 

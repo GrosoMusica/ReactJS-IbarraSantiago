@@ -22,16 +22,18 @@ const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
             nombre, precio, image
         };
 
+        // showNotification('success' , 'Agregaste ${quantity} ${nombre}');
+
         addItem(item, quantity)
     }
-    
+
     return (
         <article className="ItemDetail">
             <img src={image} alt={nombre} />
             <h3 className="TagContainer">
-                {tags && tags.map((tag, index) => (
-                    <span className="TagButton" key={index}>#{tag}{index < tags.length - 1 && '  '}</span>
-                    ))}
+            {tags && tags.map((tag, index) => (
+                <Link to={`../${tag}`} key={index} className="TagButton">#{tag}</Link>
+))}
             </h3>
             <h1>{nombre}</h1>
             <p>{description}</p>

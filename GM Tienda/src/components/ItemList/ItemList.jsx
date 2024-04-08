@@ -1,7 +1,5 @@
 import styles from "./ItemList.module.css";
 
-// import { getSampleById } from "../../asyncMock";
-// import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 
 
