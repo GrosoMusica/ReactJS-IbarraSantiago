@@ -1,5 +1,16 @@
 # React + Vite
 
+El proyecto es una tienda online donde puedes comprar diferentes tipos de samples, cada uno tiene sus imagenes y descripciones
+
+se puede Navegar desde la barra lateral y desde los botones de los tags
+a su vez las opciones de navegación son iteraciones de los tags de tal manera que si se agregan nuevos samples con nuevos tag aparecen las nuevas opciones del menú lateral automáticamente.
+
+
+.ENV
+
+Para el archivo .env se instaló la dependencia "dotenv" para una correcta configuracion de vite-config con ayuda de chatgpt
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

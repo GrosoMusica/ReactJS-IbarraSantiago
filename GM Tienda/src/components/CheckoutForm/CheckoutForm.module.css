@@ -1,35 +1,51 @@
-
-section {
+.checkoutForm {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-form {
-width: 50%;
+.form {
+    width: 50%;
 }
 
-input {
-display: block;
-margin-bottom: 10px;
+.input {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
-input {
-margin-left: 10px;
+.submitButton {
+    text-align: center;
 }
 
-button {
-    background-color: rgb(126, 9, 126) !important; 
+button:enabled {
+    background-color: rgb(126, 9, 126);
     color: aliceblue;
     border: none;
     padding: 0.5rem 1rem;
-    cursor: pointer; 
+    cursor: pointer;
     border-radius: 4px;
-    margin: 0.5rem; 
+    margin: 0.5rem;
 }
 
-button:hover {
-    color: aliceblue;
-    background-color: #34006e !important;
+button:hover:enabled {
+    background-color: #34006e;
 }
+
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
