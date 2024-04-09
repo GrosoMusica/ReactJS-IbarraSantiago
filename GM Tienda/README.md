@@ -6,9 +6,22 @@ se puede Navegar desde la barra lateral y desde los botones de los tags
 a su vez las opciones de navegación son iteraciones de los tags de tal manera que si se agregan nuevos samples con nuevos tag aparecen las nuevas opciones del menú lateral automáticamente.
 
 
+GITHUB
+
+- [https://github.com/GrosoMusica/ReactJS-IbarraSantiago]
+
+
+VERCEL
+
+- [https://react-js-ibarra-santiago.vercel.app/]
+
+
+
 .ENV
 
 Para el archivo .env se instaló la dependencia "dotenv" para una correcta configuracion de vite-config con ayuda de chatgpt
+
+
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

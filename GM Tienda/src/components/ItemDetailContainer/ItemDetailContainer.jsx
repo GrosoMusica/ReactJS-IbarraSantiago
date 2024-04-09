@@ -28,16 +28,6 @@ const ItemDetailContainer = () => {
         .catch()
 
 
-
-
-
-        // getSampleById (itemId)
-        // .then(result => {
-        //     setSample (result)
-        // })
-        // .catch (error => {
-        //     console.error(error)
-        // })
     }, [itemId]);
 
     return (

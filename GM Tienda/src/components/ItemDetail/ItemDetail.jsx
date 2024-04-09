@@ -1,11 +1,10 @@
 
-
 import { useState, useContext } from "react";
 import ItemCounter from "../ItemCounter/ItemCounter";
-// import { getSamples, getSampleById } from "../../asyncMock";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
+import { useNotificationCenter } from "react-toastify/addons/use-notification-center";
 
 
 
@@ -14,6 +13,9 @@ const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
     const [quantityAdded, setQuantityAdded] = useState(0);
 
     const { addItem } = useContext(CartContext);
+
+    const { showNotification } = useNotificationCenter()
+
     
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
@@ -22,9 +24,9 @@ const ItemDetail = ({tags, nombre, precio, image, description, stock }) => {
             nombre, precio, image
         };
 
-        // showNotification('success' , 'Agregaste ${quantity} ${nombre}');
-
         addItem(item, quantity)
+        showNotification("error", "hay un prolema para cargar")
+
     }
 
     return (
